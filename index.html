@@ -343,6 +343,193 @@ body{
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;}
 }
+
+/* ===================== DPS journey ===================== */
+.steps{display:flex;align-items:center;gap:7px;padding:0 20px 14px;}
+.steps i{height:3px;flex:1;border-radius:99px;background:var(--line);display:block;}
+.steps i.on{background:var(--accent);}
+.steps b{font-family:var(--data);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:400;white-space:nowrap;}
+
+.hubcard{
+  display:block;width:100%;text-align:left;border:1px solid var(--line-soft);background:#fff;
+  border-radius:var(--r-md);padding:17px 16px;cursor:pointer;font-family:var(--body);margin-bottom:10px;
+  transition:transform .16s ease,box-shadow .16s ease;
+}
+.hubcard:hover:not([disabled]){transform:translateY(-2px);box-shadow:0 10px 22px -14px rgba(37,8,28,.5);}
+.hubcard[disabled]{opacity:.45;cursor:not-allowed;}
+.hubcard .ico{width:24px;height:24px;color:var(--plum);}
+.hubcard h3{font-family:var(--display);font-size:16px;font-weight:700;margin-top:9px;letter-spacing:-.015em;}
+.hubcard p{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45;}
+.hubcard.dark{background:var(--ink);border-color:var(--ink);color:#fff;}
+.hubcard.dark .ico{color:var(--accent);}
+.hubcard.dark p{color:rgba(255,255,255,.62);}
+
+.flabel{font-family:var(--data);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);margin:17px 0 8px;}
+.opts{display:flex;flex-wrap:wrap;gap:7px;}
+.opt{
+  border:1px solid var(--line);background:#fff;border-radius:99px;padding:8px 14px;
+  font-family:var(--body);font-size:12.5px;cursor:pointer;color:var(--ink);
+}
+.opt[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff;}
+.opt[disabled]{opacity:.4;cursor:not-allowed;}
+.opt:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+.proj{background:var(--ink);color:#fff;border-radius:var(--r-md);padding:16px;margin-top:20px;position:relative;overflow:hidden;}
+.proj::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 80% at 90% -10%,rgba(232,72,155,.30),transparent 60%);}
+.proj > *{position:relative;z-index:1;}
+.proj .cap{font-family:var(--data);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.proj .hero{font-family:var(--display);font-size:27px;font-weight:800;letter-spacing:-.03em;margin-top:6px;
+  display:flex;align-items:baseline;gap:6px;}
+.proj .hero .cur{font-size:16px;font-weight:500;color:var(--accent);}
+.proj .rate{display:inline-block;margin-top:8px;font-family:var(--data);font-size:10px;letter-spacing:.05em;
+  background:rgba(232,72,155,.2);border:1px solid rgba(232,72,155,.45);color:#fff;padding:3px 9px;border-radius:99px;}
+.proj hr{border:0;border-top:1px solid rgba(255,255,255,.14);margin:14px 0 4px;}
+.proj .empty{font-size:12px;color:rgba(255,255,255,.55);line-height:1.5;padding:6px 0;}
+
+.nomrow{
+  width:100%;display:flex;align-items:center;gap:12px;padding:13px 14px;background:#fff;
+  border:1px solid var(--line-soft);border-radius:var(--r-md);margin-bottom:8px;cursor:pointer;
+  text-align:left;font-family:var(--body);
+}
+.nomrow[aria-pressed="true"]{border-color:var(--plum);box-shadow:0 0 0 1px var(--plum) inset;}
+.nomrow[disabled]{opacity:.5;cursor:not-allowed;}
+.nomrow .av{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--accent),var(--plum));color:#fff;
+  font-family:var(--display);font-weight:700;font-size:13px;}
+.nomrow b{font-size:13.5px;font-weight:600;display:block;}
+.nomrow small{font-size:11px;color:var(--muted);}
+.nomrow .tag{margin-left:auto;font-family:var(--data);font-size:8.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--clay);text-align:right;line-height:1.3;}
+.nomrow .tick{margin-left:auto;color:var(--plum);font-size:15px;}
+
+.rev{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden;}
+.rev .row{display:flex;justify-content:space-between;gap:14px;padding:11px 14px;border-bottom:1px solid var(--line-soft);font-size:12.5px;}
+.rev .row:last-child{border-bottom:0;}
+.rev .row span:first-child{color:var(--muted);}
+.rev .row span:last-child{font-family:var(--data);font-size:12px;text-align:right;}
+.rev .row.big span:last-child{font-weight:500;color:var(--plum);}
+.debit{
+  margin-top:12px;border-radius:var(--r-md);padding:13px 14px;
+  background:rgba(232,72,155,.09);border:1px solid rgba(232,72,155,.35);
+}
+.debit b{display:block;font-size:13px;font-weight:600;}
+.debit p{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.45;}
+.tandc{display:block;margin-top:12px;font-size:11.5px;color:var(--plum);text-decoration:underline;
+  background:none;border:0;cursor:pointer;font-family:var(--body);padding:0;}
+
+.cta{
+  width:100%;border:0;border-radius:99px;padding:14px;margin-top:18px;cursor:pointer;
+  font-family:var(--body);font-size:14px;font-weight:600;background:var(--plum);color:#fff;
+}
+.cta[disabled]{background:var(--line);color:var(--muted);cursor:not-allowed;}
+.cta.ghost{background:#fff;color:var(--clay);border:1px solid var(--line);}
+.cta:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+.otpbox{display:flex;gap:8px;justify-content:center;margin:18px 0 6px;}
+.otpbox i{
+  width:38px;height:46px;border-radius:10px;border:1px solid var(--line);background:#fff;
+  display:grid;place-items:center;font-family:var(--display);font-size:20px;font-weight:700;font-style:normal;
+}
+.otpbox i.filled{border-color:var(--plum);}
+.otpbox i.bad{border-color:var(--clay);color:var(--clay);}
+.keys{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;}
+.keys button{
+  padding:14px;border:1px solid var(--line-soft);background:#fff;border-radius:var(--r-md);
+  font-family:var(--display);font-size:18px;font-weight:600;cursor:pointer;color:var(--ink);
+}
+.keys button:hover{background:#FAF7F9;}
+.otpnote{text-align:center;font-size:11.5px;color:var(--muted);margin-top:8px;}
+.otperr{text-align:center;font-size:12px;color:var(--clay);margin-top:8px;font-weight:600;}
+
+.prog{height:7px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden;margin-top:12px;}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#fff);border-radius:99px;}
+
+.sched{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden;}
+.sched .r{display:flex;align-items:center;gap:11px;padding:11px 13px;border-bottom:1px solid var(--line-soft);}
+.sched .r:last-child{border-bottom:0;}
+.sched .n{font-family:var(--data);font-size:10px;color:var(--muted);width:22px;flex:none;}
+.sched .d{font-size:12.5px;font-weight:600;}
+.sched .s{font-size:10.5px;margin-top:1px;}
+.sched .amt{margin-left:auto;font-family:var(--data);font-size:12px;}
+.s-done{color:#1E7A5A;} .s-pend{color:var(--muted);} .s-retry{color:#B5721A;} .s-miss{color:var(--clay);}
+.dot{width:7px;height:7px;border-radius:50%;flex:none;}
+.d-done{background:#1E7A5A;} .d-pend{background:var(--line);} .d-retry{background:#B5721A;} .d-miss{background:var(--clay);}
+
+.brk{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden;margin-top:14px;}
+.brk .row{display:flex;justify-content:space-between;padding:11px 14px;border-bottom:1px solid var(--line-soft);font-size:12.5px;}
+.brk .row:last-child{border-bottom:0;background:#FAF7F9;font-weight:600;}
+.brk .row .neg{color:var(--clay);}
+.brk .row span:last-child{font-family:var(--data);font-size:12px;}
+.brk .why{padding:9px 14px;background:#FAF7F9;border-bottom:1px solid var(--line-soft);
+  font-size:10.5px;color:var(--muted);line-height:1.45;}
+.policy{
+  margin-top:12px;padding:12px 14px;border-radius:var(--r-md);
+  background:rgba(179,66,31,.08);border:1px solid rgba(179,66,31,.3);
+}
+.policy b{font-size:12.5px;display:block;margin-bottom:3px;}
+.policy p{font-size:11.5px;color:var(--muted);line-height:1.5;}
+
+.done{text-align:center;padding:26px 4px 8px;}
+.done .ring{width:62px;height:62px;border-radius:50%;margin:0 auto;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--accent),var(--plum));color:#fff;font-size:26px;}
+.done h3{font-family:var(--display);font-size:20px;font-weight:800;margin-top:14px;letter-spacing:-.02em;}
+.done p{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.5;}
+
+/* ----- DPS hub (dynamic dashboard) ----- */
+.hubcard .ico{display:block;}
+.hubcard .ico svg{width:24px;height:24px;display:block;}
+.pillrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.pill{font-family:var(--data);font-size:10px;letter-spacing:.04em;padding:4px 10px;border-radius:99px;
+  background:rgba(255,255,255,.10);color:rgba(255,255,255,.78);}
+
+.srow{
+  display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line-soft);
+  border-radius:var(--r-md);padding:13px 14px 12px;margin-bottom:9px;cursor:pointer;font-family:var(--body);
+  transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
+}
+.srow:hover{transform:translateY(-2px);border-color:var(--line);box-shadow:0 9px 20px -14px rgba(37,8,28,.5);}
+.srow:focus-visible{outline:2px solid var(--plum);outline-offset:3px;}
+.srow .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.srow b{font-size:13.5px;font-weight:600;letter-spacing:-.01em;display:block;}
+.srow small{font-family:var(--data);font-size:10.5px;color:var(--muted);display:block;margin-top:2px;}
+.srow .amt{font-family:var(--display);font-size:15px;font-weight:700;text-align:right;white-space:nowrap;}
+.srow .amt i{display:block;font-family:var(--data);font-size:9.5px;font-style:normal;
+  color:var(--plum);font-weight:400;margin-top:2px;}
+.progl{height:5px;border-radius:99px;background:var(--line-soft);overflow:hidden;margin:11px 0 8px;}
+.progl i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--plum),var(--accent));}
+.srow .foot{display:flex;justify-content:space-between;gap:10px;font-family:var(--data);
+  font-size:9.5px;color:var(--muted);letter-spacing:.02em;}
+
+.zero{
+  border:1px dashed var(--line);border-radius:var(--r-md);padding:18px 16px;margin-top:20px;
+  font-size:12.5px;color:var(--muted);line-height:1.55;background:#fff;text-align:center;
+}
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px;}
+.qbtn{
+  background:#fff;border:1px solid var(--line-soft);border-radius:var(--r-md);padding:13px 12px;
+  cursor:pointer;font-family:var(--body);display:flex;align-items:center;gap:9px;text-align:left;
+}
+.qbtn:hover{border-color:var(--line);}
+.qbtn .ico{width:19px;height:19px;color:var(--plum);flex:none;}
+.qbtn .ico svg{width:100%;height:100%;display:block;}
+.qbtn b{font-size:12.5px;font-weight:600;}
+
+.faqitem{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r-md);
+  padding:14px 15px;margin-bottom:9px;}
+.faqitem b{font-size:13px;font-weight:600;display:block;letter-spacing:-.01em;}
+.faqitem p{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.55;}
+.tutstep{display:flex;gap:13px;padding:14px 4px;border-bottom:1px solid var(--line-soft);}
+.tutstep:last-of-type{border-bottom:0;}
+.tutstep .num{
+  width:28px;height:28px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--accent),var(--plum));color:#fff;
+  font-family:var(--display);font-weight:700;font-size:13px;
+}
+.tutstep b{font-size:13.5px;font-weight:600;display:block;}
+.tutstep p{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.55;}
 </style>
 </head>
 <body>
@@ -426,6 +613,36 @@ body{
         <button data-v="single">1 eligible</button>
         <button data-v="none">None eligible</button>
         <button data-v="fail">Fetch failed</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="story">DPS-01 · DPS-03 · Journey setup</div>
+      <h3>DPS scenario</h3>
+      <p>Tap <b>Deposit Scheme</b> on the Dashboard to enter. These switch what the journey finds on the customer's record.</p>
+      <div class="segmented" id="ctl-scheme">
+        <button data-v="two">2 schemes</button>
+        <button data-v="one">1 scheme</button>
+        <button data-v="no">None yet</button>
+      </div>
+      <div class="segmented" id="ctl-nom" style="margin-top:8px">
+        <button data-v="one">1 nominee</button>
+        <button data-v="many">Several</button>
+        <button data-v="minors">All minors</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="story">DPS-06 · DPS-08 · Payout rules</div>
+      <h3>Cancellation &amp; tax</h3>
+      <p>The 90-day holding period changes the interest treatment; the certificate toggle switches AIT between 10% and 15% on interest.</p>
+      <div class="segmented" id="ctl-hold">
+        <button data-v="met">Held 8 months</button>
+        <button data-v="unmet">Held 45 days</button>
+      </div>
+      <div class="segmented" id="ctl-ait" style="margin-top:8px">
+        <button data-v="verified">Certificate verified</button>
+        <button data-v="none">Not verified</button>
       </div>
     </div>
 
@@ -549,6 +766,8 @@ const ICONS = {
   hist:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
   stmt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h4"/></svg>',
   pwd:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>',
+  faq:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.6 2.6 0 1 1 3.2 2.5c-.5.2-.7.6-.7 1.1v.5"/><circle cx="12" cy="16.6" r=".9" fill="currentColor" stroke="none"/></svg>',
+  play:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="13" rx="2.5"/><path d="M10.2 8.6l4.6 2.9-4.6 2.9z"/><path d="M8 21h8"/></svg>',
   back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5l-7 7 7 7"/></svg>'
 };
 
@@ -625,7 +844,7 @@ function tiles(){
   return `<div class="sec-head"><h2>${c.services}</h2><span>${c.tileCount}</span></div>
   <div class="tiles">
     ${tile('check','bal',c.checkBal)}
-    ${tile('mod:dps','dps',c.dps)}
+    ${tile('dps','dps',c.dps)}
     ${tile('mod:ft','ft',c.ft,ftOK())}
     ${tile('mod:cw','cw',c.cw)}
     ${tile('mod:qr','qr',c.qr,qrOK())}
@@ -744,11 +963,11 @@ function moduleStub(){
 }
 
 /* ===================== render ===================== */
+const VIEWS = {dashboard,check:checkBalance,other:otherServices,module:moduleStub};
 function render(){
   document.documentElement.setAttribute('data-lang',state.lang);
   const el = document.getElementById('screen');
-  const views = {dashboard,check:checkBalance,other:otherServices,module:moduleStub};
-  el.innerHTML = (views[state.screen]||dashboard)();
+  el.innerHTML = (VIEWS[state.screen]||dashboard)();
   if(state.toast){
     el.insertAdjacentHTML('beforeend',
       `<div class="toast"><b>${state.toast.t}</b><span>${state.toast.s}</span></div>`);
@@ -837,5 +1056,582 @@ setInterval(()=>{
 
 render();
 </script>
+<script>
+/* ============================================================
+   DPS journey — open, check, plan details, cancel
+   Extends the Dashboard prototype. Story refs: DPS-01…DPS-08.
+   ============================================================ */
+
+/* ---------- configuration (all values Business-configurable) ---------- */
+const DPS_CFG = {
+  holdingDays:90,            // DPS-06 minimum holding period
+  retryDays:7,               // DPS-07 T+x retry window
+  aitVerified:10, aitStd:15, // DPS-06/08 AIT on interest only
+  exciseHigh:500, exciseLow:150,
+  prematureInterestShare:0.5 // placeholder slab — pending Business
+};
+
+const DPS_PRODUCTS = [
+  {id:'reg', en:'Regular DPS',        bn:'রেগুলার ডিপিএস',   tenures:[3,5,10], amounts:[500,1000,2000,5000], rate:{3:7.25,5:7.75,10:8.25}},
+  {id:'mil', en:'Millionaire Scheme', bn:'মিলিয়নেয়ার স্কিম', tenures:[5,10],   amounts:[5000,10000],        rate:{5:8.00,10:8.50}},
+  {id:'stu', en:'Student Savings',    bn:'স্টুডেন্ট সেভিংস',   tenures:[3],      amounts:[500,1000],          rate:{3:7.00}}
+];
+
+const NOMINEES = [
+  {id:'n1', en:'Rahim Rahman',  bn:'রহিম রহমান',   rEn:'Spouse',   rBn:'স্বামী',  nid:'•••• 4471', minor:false},
+  {id:'n2', en:'Tasnim Rahman', bn:'তাসনিম রহমান', rEn:'Daughter', rBn:'কন্যা',   nid:'—',         minor:true},
+  {id:'n3', en:'Shahana Begum', bn:'শাহানা বেগম',  rEn:'Mother',   rBn:'মা',      nid:'•••• 9902', minor:false}
+];
+
+const SCHEMES = [
+  {id:'s1', prod:'reg', acct:'0142 7739 3311 0027', tenure:5,  amount:2000, rate:7.75, ran:8},
+  {id:'s2', prod:'mil', acct:'0142 7739 5522 0148', tenure:10, amount:5000, rate:8.50, ran:14}
+];
+const activeSchemes = () => state.hasScheme==='two' ? SCHEMES
+                          : state.hasScheme==='one' ? [SCHEMES[0]] : [];
+const selScheme = () => activeSchemes().find(x=>x.id===state.sel) || activeSchemes()[0] || SCHEMES[0];
+
+/* ---------- copy ---------- */
+T.en.dpsUI = {
+  hub:'Deposit Scheme', open:'Open New Savings', openS:'Pick a scheme, confirm your nominee, start today.',
+  totalSaved:'Total saved across schemes', activeN:'active schemes', openNew:'Open a new DPS',
+  yourSchemes:'Your schemes', zeroS:'Nothing saved yet. Opening a scheme takes about a minute — your nominee and account details are already on file.',
+  faq:'FAQ', tut:'How it works',
+  faqs:[
+    {q:'When is my instalment taken?',a:'The first is taken the moment you open the scheme. After that, on the same date each month — or the last day of the month if that date does not exist.'},
+    {q:'What if my account is short on the due date?',a:'We hold the amount and retry for 7 days. If it is still short after that, the instalment is marked as missed and the hold is released.'},
+    {q:'Does a missed instalment close my scheme?',a:'No. Your scheme stays active and runs to maturity — the shortfall simply reduces what you receive.'},
+    {q:'Can I cancel early?',a:'Yes. Your deposits always come back in full. Only the interest is reduced, based on how long the scheme ran and the 90-day minimum holding period.'},
+    {q:'Why was 15% tax deducted?',a:'AIT is 15% on interest unless your Tax Acknowledgement Certificate is verified for that assessment year, in which case it is 10%. It never applies to your own deposits.'}
+  ],
+  steps:[
+    {t:'Choose your scheme',p:'Pick a type, tenure and monthly amount. The maturity figure updates as you choose.'},
+    {t:'Confirm your nominee',p:'Already on file from your account opening — just check it and continue.'},
+    {t:'Open with one confirmation',p:'Approve with OTP or biometric. Your first instalment is collected right away.'},
+    {t:'We collect the rest',p:'Every month, automatically. Track each instalment in Plan details.'}
+  ],
+  check:'Check Your Savings', checkS:'Track what you have saved and what it will be worth.',
+  noneYet:'No scheme yet — open one to get started.', oneScheme:'1 active scheme',
+  step:'Step', of:'of',
+  type:'Scheme type', tenure:'Tenure', amount:'Monthly instalment',
+  yr:'years', pickAll:'Choose a type, tenure and instalment to see your projection.',
+  atMaturity:'You receive at maturity', rateFixed:'fixed for the full term',
+  totDep:'Total deposit', earn:'Projected earning', matures:'Matures',
+  cont:'Continue', nomTitle:'Nominee', nomS:'Carried over from your account opening — confirm and continue.',
+  minorTag:'Minor — not eligible for DPS', allMinors:'No eligible nominee',
+  allMinorsS:'Every nominee on record is a minor. Add an adult nominee to open a DPS.',
+  addNom:'Add a nominee', revTitle:'Review & confirm',
+  firstNow:'First instalment debited now', firstNowS:'Taken from your account the moment the scheme opens. Instalment 2 falls on the same day next month.',
+  nextDue:'Next instalment', interest:'Interest rate', nominee:'Nominee',
+  readTC:'Read the cancellation Terms & Conditions',
+  confirm:'Confirm & open scheme', otpTitle:'Confirm it is you',
+  otpS:'Enter the 6-digit code sent to your registered number.',
+  otpHint:'Demo code: 123456', otpBad:'Incorrect code — try again', resend:'Resend code',
+  opened:'Scheme opened', openedS:'Your first instalment has been collected.',
+  acctNo:'DPS account', viewScheme:'View my scheme', collectedToday:'Collected today',
+  myScheme:'My savings', savedSoFar:'Saved so far', ofTarget:'of target',
+  planBtn:'Plan details', cancelBtn:'Cancel savings', planTitle:'Plan details',
+  doneOn:'Deposit completed on', pending:'Pending', retrying:'Retrying', daysLeft:'days left',
+  missed:'Missed deposit', cancelTitle:'Cancel savings',
+  principal:'Principal returned', principalS:'Your deposits are always returned in full — no charge is taken from them.',
+  intEarned:'Interest earned', intReduced:'Interest (reduced)', ait:'AIT', excise:'Excise duty',
+  payable:'Total payable', aitWhy10:'10% — Tax Acknowledgement Certificate verified for this assessment year.',
+  aitWhy15:'15% — no verified certificate on record. Submit one in the b Bank portal to be taxed at 10%.',
+  heldMet:'Held beyond the 90-day minimum period.',
+  heldUnmet:'Cancelled inside the 90-day minimum holding period — interest is not payable.',
+  slabNote:'Interest reduction slab is configurable and pending Business sign-off.',
+  confirmCancel:'Confirm cancellation', cancelled:'Savings cancelled',
+  cancelledS:'Collections have stopped and the subscription is cancelled in the scheduler.',
+  creditedTo:'Credited to', backHome:'Back to Dashboard', taxNote:'AIT is charged on interest only, never on your principal.'
+};
+
+T.bn.dpsUI = {
+  hub:'ডিপোজিট স্কিম', open:'নতুন সঞ্চয় খুলুন', openS:'স্কিম বাছুন, নমিনি নিশ্চিত করুন, আজই শুরু করুন।',
+  totalSaved:'সব স্কিম মিলিয়ে মোট জমা', activeN:'চলমান স্কিম', openNew:'নতুন ডিপিএস খুলুন',
+  yourSchemes:'আপনার স্কিমসমূহ', zeroS:'এখনো কিছু জমা হয়নি। স্কিম খুলতে এক মিনিটও লাগে না — নমিনি ও অ্যাকাউন্টের তথ্য আগে থেকেই আছে।',
+  faq:'সাধারণ প্রশ্ন', tut:'কীভাবে কাজ করে',
+  faqs:[
+    {q:'কিস্তি কখন কাটা হয়?',a:'প্রথম কিস্তি স্কিম খোলার সঙ্গে সঙ্গেই। এরপর প্রতি মাসে একই তারিখে — সেই তারিখ না থাকলে মাসের শেষ দিনে।'},
+    {q:'নির্ধারিত দিনে টাকা কম থাকলে?',a:'আমরা টাকাটি হোল্ড করে ৭ দিন পর্যন্ত চেষ্টা করি। এরপরও না হলে কিস্তিটি বাদ পড়েছে বলে ধরা হয় এবং হোল্ড ছেড়ে দেওয়া হয়।'},
+    {q:'কিস্তি বাদ পড়লে স্কিম বাতিল হয়?',a:'না। স্কিম চালু থাকে এবং মেয়াদ পর্যন্ত চলে — শুধু প্রাপ্য অর্থ কিছুটা কমে।'},
+    {q:'আগে বাতিল করা যাবে?',a:'হ্যাঁ। জমা করা আসল সবসময় পুরোটাই ফেরত পাবেন। কেবল মুনাফা কমে, স্কিম কতদিন চলেছে ও ৯০ দিনের ন্যূনতম মেয়াদের ভিত্তিতে।'},
+    {q:'১৫% কর কাটা হলো কেন?',a:'যাচাইকৃত ট্যাক্স অ্যাকনলেজমেন্ট সার্টিফিকেট না থাকলে মুনাফার ওপর ১৫% অগ্রিম আয়কর, থাকলে ১০%। আপনার আসলের ওপর কখনোই নয়।'}
+  ],
+  steps:[
+    {t:'স্কিম বাছুন',p:'ধরন, মেয়াদ ও মাসিক কিস্তি বেছে নিন। মেয়াদ শেষের হিসাব সঙ্গে সঙ্গে দেখাবে।'},
+    {t:'নমিনি নিশ্চিত করুন',p:'অ্যাকাউন্ট খোলার সময়ের নমিনি আগে থেকেই আছে — শুধু দেখে এগিয়ে যান।'},
+    {t:'এক ধাপে নিশ্চিত করুন',p:'ওটিপি বা বায়োমেট্রিক দিয়ে অনুমোদন করুন। প্রথম কিস্তি তখনই জমা হবে।'},
+    {t:'বাকিটা আমরা দেখি',p:'প্রতি মাসে স্বয়ংক্রিয়ভাবে। প্রতিটি কিস্তি কিস্তির তালিকায় দেখতে পাবেন।'}
+  ],
+  check:'আপনার সঞ্চয় দেখুন', checkS:'কত জমা হয়েছে আর মেয়াদ শেষে কত পাবেন দেখুন।',
+  noneYet:'এখনো কোনো স্কিম নেই — শুরু করতে একটি খুলুন।', oneScheme:'১টি চলমান স্কিম',
+  step:'ধাপ', of:'/',
+  type:'স্কিমের ধরন', tenure:'মেয়াদ', amount:'মাসিক কিস্তি',
+  yr:'বছর', pickAll:'হিসাব দেখতে ধরন, মেয়াদ ও কিস্তি বেছে নিন।',
+  atMaturity:'মেয়াদ শেষে পাবেন', rateFixed:'পুরো মেয়াদে অপরিবর্তিত',
+  totDep:'মোট জমা', earn:'সম্ভাব্য মুনাফা', matures:'মেয়াদ শেষ',
+  cont:'পরবর্তী', nomTitle:'নমিনি', nomS:'অ্যাকাউন্ট খোলার সময় দেওয়া নমিনি — নিশ্চিত করে এগিয়ে যান।',
+  minorTag:'অপ্রাপ্তবয়স্ক — ডিপিএসে গ্রহণযোগ্য নয়', allMinors:'যোগ্য নমিনি নেই',
+  allMinorsS:'রেকর্ডে থাকা সব নমিনি অপ্রাপ্তবয়স্ক। ডিপিএস খুলতে একজন প্রাপ্তবয়স্ক নমিনি যোগ করুন।',
+  addNom:'নমিনি যোগ করুন', revTitle:'যাচাই ও নিশ্চিত করুন',
+  firstNow:'প্রথম কিস্তি এখনই কাটা হবে', firstNowS:'স্কিম খোলার সঙ্গে সঙ্গেই অ্যাকাউন্ট থেকে কাটা হবে। ২য় কিস্তি পরের মাসের একই তারিখে।',
+  nextDue:'পরবর্তী কিস্তি', interest:'মুনাফার হার', nominee:'নমিনি',
+  readTC:'বাতিলের শর্তাবলি পড়ুন',
+  confirm:'নিশ্চিত করে স্কিম খুলুন', otpTitle:'পরিচয় নিশ্চিত করুন',
+  otpS:'আপনার নিবন্ধিত নম্বরে পাঠানো ৬ সংখ্যার কোড দিন।',
+  otpHint:'ডেমো কোড: ১২৩৪৫৬', otpBad:'কোড মেলেনি — আবার চেষ্টা করুন', resend:'কোড আবার পাঠান',
+  opened:'স্কিম চালু হয়েছে', openedS:'আপনার প্রথম কিস্তি জমা হয়েছে।',
+  acctNo:'ডিপিএস অ্যাকাউন্ট', viewScheme:'আমার স্কিম দেখুন', collectedToday:'আজ জমা হয়েছে',
+  myScheme:'আমার সঞ্চয়', savedSoFar:'এখন পর্যন্ত জমা', ofTarget:'লক্ষ্যমাত্রার',
+  planBtn:'কিস্তির তালিকা', cancelBtn:'সঞ্চয় বাতিল করুন', planTitle:'কিস্তির তালিকা',
+  doneOn:'জমা সম্পন্ন', pending:'অপেক্ষমাণ', retrying:'পুনরায় চেষ্টা', daysLeft:'দিন বাকি',
+  missed:'কিস্তি বাদ পড়েছে', cancelTitle:'সঞ্চয় বাতিল',
+  principal:'ফেরতযোগ্য আসল', principalS:'আপনার জমা করা টাকা সবসময় পুরোটাই ফেরত দেওয়া হয় — এখান থেকে কিছু কাটা হয় না।',
+  intEarned:'অর্জিত মুনাফা', intReduced:'মুনাফা (হ্রাসকৃত)', ait:'অগ্রিম আয়কর', excise:'আবগারি শুল্ক',
+  payable:'মোট প্রদেয়', aitWhy10:'১০% — এই কর বছরের ট্যাক্স অ্যাকনলেজমেন্ট সার্টিফিকেট যাচাই করা হয়েছে।',
+  aitWhy15:'১৫% — যাচাইকৃত সার্টিফিকেট নেই। ১০% হারে কর দিতে b Bank পোর্টালে জমা দিন।',
+  heldMet:'৯০ দিনের ন্যূনতম মেয়াদ পার হয়েছে।',
+  heldUnmet:'৯০ দিনের ন্যূনতম মেয়াদের ভেতরে বাতিল — মুনাফা প্রযোজ্য নয়।',
+  slabNote:'মুনাফা হ্রাসের স্ল্যাব কনফিগারযোগ্য, বিজনেস টিমের অনুমোদন বাকি।',
+  confirmCancel:'বাতিল নিশ্চিত করুন', cancelled:'সঞ্চয় বাতিল হয়েছে',
+  cancelledS:'কিস্তি কাটা বন্ধ হয়েছে এবং শিডিউলারে সাবস্ক্রিপশন বাতিল হয়েছে।',
+  creditedTo:'জমা হয়েছে', backHome:'ড্যাশবোর্ডে ফিরুন', taxNote:'অগ্রিম আয়কর শুধু মুনাফার ওপর, আসলের ওপর নয়।'
+};
+
+/* ---------- state ---------- */
+Object.assign(state,{
+  dpsStack:[], hasScheme:'two', sel:'s1', nomSet:'one', holding:'met', aitCert:'verified',
+  d:{prod:null,ten:null,amt:null,nom:null}, otp:'', otpBad:false, otpFor:'open'
+});
+
+/* ---------- helpers ---------- */
+const d = () => t().dpsUI;
+const addMonths = (dt,m) => {
+  const day = dt.getDate();
+  const r = new Date(dt.getFullYear(), dt.getMonth()+m, 1);
+  const last = new Date(r.getFullYear(), r.getMonth()+1, 0).getDate();
+  r.setDate(Math.min(day,last));                    // DPS-04: clamp to last day of month
+  return r;
+};
+const MEN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MBN=['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগ','সেপ্ট','অক্টো','নভে','ডিসে'];
+const fmtDate = dt => digits(dt.getDate())+' '+(state.lang==='bn'?MBN:MEN)[dt.getMonth()]+' '+digits(dt.getFullYear());
+const prod = () => DPS_PRODUCTS.find(p=>p.id===state.d.prod);
+const pname = p => state.lang==='bn'?p.bn:p.en;
+const aitRate = () => state.aitCert==='verified' ? DPS_CFG.aitVerified : DPS_CFG.aitStd;
+const excise = bal => bal>100000 ? DPS_CFG.exciseHigh : DPS_CFG.exciseLow;
+const nomList = () => state.nomSet==='one' ? [NOMINEES[0]]
+                    : state.nomSet==='many' ? NOMINEES : [NOMINEES[1]];
+const eligibleNoms = () => nomList().filter(n=>!n.minor);
+
+function projection(){
+  const p = prod(); const {ten,amt} = state.d;
+  if(!p||!ten||!amt) return null;
+  const rate = p.rate[ten], n = ten*12, i = rate/100/12;
+  const fv = amt*((Math.pow(1+i,n)-1)/i)*(1+i);
+  return {rate,n,total:amt*n,interest:fv-amt*n,payout:fv,maturity:addMonths(new Date(),n)};
+}
+
+/* existing scheme — schedule with the four DPS-08 statuses */
+function schedule(sch){
+  sch = sch || selScheme();
+  const elapsed = state.holding==='met' ? sch.ran : 1;
+  const open = addMonths(new Date(), -elapsed);
+  const rows = [];
+  for(let i=0;i<=Math.min(elapsed, sch.tenure*12-1);i++){
+    const due = addMonths(open,i);
+    let st='done', on=due;
+    if(state.holding==='met' && i===6) st='miss';
+    else if(state.holding==='met' && i===7) st='retry';
+    else if(i===3){ on = new Date(due); on.setDate(on.getDate()+4); }  // retry succeeded late
+    rows.push({i,due,st,on});
+  }
+  const done = rows.filter(r=>r.st==='done').length;
+  return {rows,open,elapsed,done,saved:done*sch.amount,sch};
+}
+
+function cancelCalc(){
+  const sch = selScheme();
+  const s = schedule(sch);
+  const principal = s.saved;
+  const yrs = s.elapsed/12;
+  const gross = principal*(sch.rate/100)*yrs;
+  const met = state.holding==='met';
+  const interest = met ? gross*DPS_CFG.prematureInterestShare : 0;   // slab pending Business
+  const ait = interest*aitRate()/100;
+  const ex = excise(principal);
+  return {met,principal,interest,ait,ex,payable:principal+interest-ait-ex};
+}
+
+function maturityOf(sch){
+  const n = sch.tenure*12, i = sch.rate/100/12;
+  return sch.amount*((Math.pow(1+i,n)-1)/i)*(1+i);
+}
+const totalSaved = () => activeSchemes().reduce((a,sch)=>a+schedule(sch).saved,0);
+const totalMaturity = () => activeSchemes().reduce((a,sch)=>a+maturityOf(sch),0);
+
+/* ---------- navigation ---------- */
+function dgo(s){ state.dpsStack.push(state.screen); state.screen=s; render(); }
+function dback(){
+  const prev = state.dpsStack.pop();
+  if(prev){ state.screen = prev; }
+  else { state.screen='dashboard'; state.balanceHidden=true; }
+  render();
+}
+function dhead(title){
+  return `<div class="subhead">
+    <button class="back" data-act="dback" aria-label="Back">${ICONS.back}</button>
+    <h2>${title}</h2>
+  </div>`;
+}
+function stepbar(n){
+  return `<div class="steps"><b>${d().step} ${digits(n)} ${d().of} ${digits(3)}</b>
+    ${[1,2,3].map(i=>`<i class="${i<=n?'on':''}"></i>`).join('')}</div>`;
+}
+
+/* ---------- screens ---------- */
+function dpsHub(){
+  const c = d(), list = activeSchemes(), has = list.length>0;
+  const saved = totalSaved(), mat = totalMaturity();
+
+  const rows = list.map(sch=>{
+    const st = schedule(sch), target = sch.amount*sch.tenure*12;
+    const pct = Math.round(st.saved/target*100);
+    const p = DPS_PRODUCTS.find(x=>x.id===sch.prod);
+    const nextDue = addMonths(st.open, st.rows.length);
+    return `<button class="srow" data-act="dsel:${sch.id}">
+      <div class="top">
+        <div>
+          <b>${pname(p)}</b>
+          <small>${digits('••••'+sch.acct.slice(-5))} · ৳ ${money(sch.amount)}/${state.lang==='bn'?'মাস':'mo'}</small>
+        </div>
+        <div class="amt">৳ ${money(st.saved)}<i>${digits(pct)}%</i></div>
+      </div>
+      <div class="progl"><i style="width:${Math.max(pct,2)}%"></i></div>
+      <div class="foot"><span>${c.nextDue}: ${fmtDate(nextDue)}</span><span>${c.matures} ${fmtDate(addMonths(st.open,sch.tenure*12))}</span></div>
+    </button>`;
+  }).join('');
+
+  return dhead(c.hub) + `<div class="pad">
+    <div class="detail" style="padding:18px 18px 20px">
+      <div class="k">${c.totalSaved}</div>
+      <div class="big"><span class="cur">৳</span>${money(saved)}</div>
+      <div class="pillrow">
+        <span class="pill">${has?digits(list.length)+' '+c.activeN:c.noneYet}</span>
+        ${has?`<span class="pill">${c.atMaturity} ৳ ${money(Math.round(mat))}</span>`:''}
+      </div>
+    </div>
+
+    <button class="cta" data-act="dnew">${c.openNew}</button>
+
+    ${has ? `<div class="flabel" style="margin-top:22px">${c.yourSchemes}</div>${rows}`
+          : `<div class="zero">${c.zeroS}</div>`}
+
+    <div class="qgrid">
+      <button class="qbtn" data-act="dfaq"><span class="ico">${ICONS.faq}</span><b>${c.faq}</b></button>
+      <button class="qbtn" data-act="dtut"><span class="ico">${ICONS.play}</span><b>${c.tut}</b></button>
+    </div>
+  </div>`;
+}
+
+function dpsFaq(){
+  const c = d();
+  return dhead(c.faq) + `<div class="pad">
+    ${c.faqs.map(f=>`<div class="faqitem"><b>${f.q}</b><p>${f.a}</p></div>`).join('')}
+  </div>`;
+}
+
+function dpsTutorial(){
+  const c = d();
+  return dhead(c.tut) + `<div class="pad">
+    ${c.steps.map((st,i)=>`<div class="tutstep">
+      <span class="num">${digits(i+1)}</span>
+      <div><b>${st.t}</b><p>${st.p}</p></div>
+    </div>`).join('')}
+    <button class="cta" data-act="dnew">${c.openNew}</button>
+  </div>`;
+}
+
+function dpsOpen(){
+  const c = d(), p = prod(), pr = projection();
+  const opts = (arr,key,fmt) => arr.map(v=>
+    `<button class="opt" data-act="dset:${key}:${v}" aria-pressed="${state.d[key]===v}">${fmt(v)}</button>`).join('');
+
+  return dhead(c.open) + stepbar(1) + `<div class="pad">
+    <div class="flabel">${c.type}</div>
+    <div class="opts">${DPS_PRODUCTS.map(x=>
+      `<button class="opt" data-act="dset:prod:${x.id}" aria-pressed="${state.d.prod===x.id}">${pname(x)}</button>`).join('')}</div>
+
+    <div class="flabel">${c.tenure}</div>
+    <div class="opts">${p ? opts(p.tenures,'ten',v=>digits(v)+' '+c.yr)
+      : `<span style="font-size:12px;color:var(--muted)">${c.pickAll}</span>`}</div>
+
+    <div class="flabel">${c.amount}</div>
+    <div class="opts">${p ? opts(p.amounts,'amt',v=>'৳ '+money(v)) : ''}</div>
+
+    <div class="proj">
+      ${pr ? `<div class="cap">${c.atMaturity}</div>
+        <div class="hero"><span class="cur">৳</span>${money(Math.round(pr.payout))}</div>
+        <div class="rate">${digits(pr.rate.toFixed(2))}% p.a. · ${c.rateFixed}</div>
+        <hr>
+        <div class="kv"><span>${c.totDep}</span><span>৳ ${money(pr.total)}</span></div>
+        <div class="kv"><span>${c.earn}</span><span>৳ ${money(Math.round(pr.interest))}</span></div>
+        <div class="kv"><span>${c.matures}</span><span>${fmtDate(pr.maturity)}</span></div>`
+      : `<div class="cap">${c.atMaturity}</div><div class="empty">${c.pickAll}</div>`}
+    </div>
+
+    <button class="cta" data-act="dnom" ${pr?'':'disabled'}>${c.cont}</button>
+  </div>`;
+}
+
+function dpsNominee(){
+  const c = d(), list = nomList(), elig = eligibleNoms();
+  if(!state.d.nom && elig.length) state.d.nom = elig[0].id;      // DPS-03 pre-selection
+
+  if(!elig.length){
+    return dhead(c.nomTitle) + stepbar(2) + `<div class="pad">
+      <div class="policy"><b>${c.allMinors}</b><p>${c.allMinorsS}</p></div>
+      <button class="cta" data-act="toastnom">${c.addNom}</button>
+    </div>`;
+  }
+
+  return dhead(c.nomTitle) + stepbar(2) + `<div class="pad">
+    <p style="font-size:12.5px;color:var(--muted);line-height:1.5;margin-bottom:14px">${c.nomS}</p>
+    ${list.map(n=>`
+      <button class="nomrow" data-act="dset:nom:${n.id}" ${n.minor?'disabled':''}
+              aria-pressed="${state.d.nom===n.id}">
+        <span class="av">${(state.lang==='bn'?n.bn:n.en).charAt(0)}</span>
+        <span><b>${state.lang==='bn'?n.bn:n.en}</b>
+          <small>${state.lang==='bn'?n.rBn:n.rEn} · ${digits(n.nid)}</small></span>
+        ${n.minor ? `<span class="tag">${c.minorTag}</span>`
+                  : (state.d.nom===n.id ? `<span class="tick">✓</span>` : '')}
+      </button>`).join('')}
+    <button class="cta" data-act="drev">${c.cont}</button>
+  </div>`;
+}
+
+function dpsReview(){
+  const c = d(), pr = projection(), p = prod();
+  const nom = NOMINEES.find(n=>n.id===state.d.nom);
+  const next = addMonths(new Date(),1);
+  return dhead(c.revTitle) + stepbar(3) + `<div class="pad">
+    <div class="rev">
+      <div class="row"><span>${c.type}</span><span>${pname(p)}</span></div>
+      <div class="row"><span>${c.tenure}</span><span>${digits(state.d.ten)} ${c.yr}</span></div>
+      <div class="row"><span>${c.amount}</span><span>৳ ${money(state.d.amt)}</span></div>
+      <div class="row"><span>${c.interest}</span><span>${digits(pr.rate.toFixed(2))}% p.a.</span></div>
+      <div class="row"><span>${c.nextDue}</span><span>${fmtDate(next)}</span></div>
+      <div class="row"><span>${c.matures}</span><span>${fmtDate(pr.maturity)}</span></div>
+      <div class="row"><span>${c.totDep}</span><span>৳ ${money(pr.total)}</span></div>
+      <div class="row"><span>${c.earn}</span><span>৳ ${money(Math.round(pr.interest))}</span></div>
+      <div class="row big"><span>${c.atMaturity}</span><span>৳ ${money(Math.round(pr.payout))}</span></div>
+      <div class="row"><span>${c.nominee}</span><span>${state.lang==='bn'?nom.bn:nom.en}</span></div>
+    </div>
+    <div class="debit">
+      <b>${c.firstNow} · ৳ ${money(state.d.amt)}</b>
+      <p>${c.firstNowS}</p>
+    </div>
+    <button class="tandc" data-act="toasttc">${c.readTC}</button>
+    <button class="cta" data-act="dotp:open">${c.confirm}</button>
+  </div>`;
+}
+
+function dpsOtp(){
+  const c = d(), cancel = state.otpFor==='cancel';
+  const boxes = [0,1,2,3,4,5].map(i=>
+    `<i class="${state.otpBad?'bad':(state.otp[i]?'filled':'')}">${state.otp[i]?digits(state.otp[i]):''}</i>`).join('');
+  const keys = ['1','2','3','4','5','6','7','8','9','','0','⌫'].map(k=>
+    k ? `<button data-act="dkey:${k}">${k==='⌫'?k:digits(k)}</button>` : `<span></span>`).join('');
+  return dhead(c.otpTitle) + `<div class="pad">
+    <p style="font-size:12.5px;color:var(--muted);line-height:1.5">${c.otpS}</p>
+    <div class="otpbox">${boxes}</div>
+    ${state.otpBad?`<div class="otperr">${c.otpBad}</div>`:`<div class="otpnote">${c.otpHint}</div>`}
+    <div class="keys">${keys}</div>
+    <button class="tandc" style="text-align:center;width:100%" data-act="toastresend">${c.resend}</button>
+    <button class="cta" data-act="${cancel?'dcancelled':'dopened'}" ${state.otp.length===6?'':'disabled'}>
+      ${cancel?c.confirmCancel:c.confirm}</button>
+  </div>`;
+}
+
+function dpsSuccess(){
+  const c = d(), pr = projection(), next = addMonths(new Date(),1);
+  return `<div class="pad" style="padding-top:8px">
+    <div class="done">
+      <div class="ring">✓</div><h3>${c.opened}</h3><p>${c.openedS}</p>
+    </div>
+    <div class="rev" style="margin-top:20px">
+      <div class="row"><span>${c.acctNo}</span><span>${digits('0142 7739 4180 2265')}</span></div>
+      <div class="row big"><span>${c.collectedToday}</span><span>৳ ${money(state.d.amt)}</span></div>
+      <div class="row"><span>${c.nextDue}</span><span>${fmtDate(next)}</span></div>
+      <div class="row"><span>${c.matures}</span><span>${fmtDate(pr.maturity)}</span></div>
+    </div>
+    <button class="cta" data-act="dhub">${c.viewScheme}</button>
+    <button class="cta ghost" data-act="dhome" style="margin-top:9px;color:var(--muted)">${c.backHome}</button>
+  </div>`;
+}
+
+const dpsList = dpsHub;   // the hub now lists every scheme
+
+function dpsSummary(){
+  const c = d(), sch = selScheme(), s = schedule(sch);
+  const n = sch.tenure*12;
+  const fv = maturityOf(sch);
+  const target = sch.amount*n, pct = Math.round(s.saved/target*100);
+  const nom = eligibleNoms()[0] || NOMINEES[0];
+  return dhead(c.myScheme) + `<div class="pad">
+    <div class="detail">
+      <div class="k">${c.savedSoFar}</div>
+      <div class="big"><span class="cur">৳</span>${money(s.saved)}</div>
+      <div class="prog"><i style="width:${Math.max(pct,2)}%"></i></div>
+      <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:7px">
+        ${digits(pct)}% ${c.ofTarget} ৳ ${money(target)}</div>
+      <hr>
+      <div class="kv"><span>${c.acctNo}</span><span>${digits(sch.acct)}</span></div>
+      <div class="kv"><span>${c.interest}</span><span>${digits(sch.rate.toFixed(2))}% p.a.</span></div>
+      <div class="kv"><span>${c.totDep}</span><span>৳ ${money(target)}</span></div>
+      <div class="kv"><span>${c.earn}</span><span>৳ ${money(Math.round(fv-target))}</span></div>
+      <div class="kv"><span>${c.atMaturity}</span><span>৳ ${money(Math.round(fv))}</span></div>
+      <div class="kv"><span>${c.matures}</span><span>${fmtDate(addMonths(s.open,n))}</span></div>
+      <div class="kv"><span>${c.nominee}</span><span>${state.lang==='bn'?nom.bn:nom.en}</span></div>
+    </div>
+    <button class="cta" data-act="dplan">${c.planBtn}</button>
+    <button class="cta ghost" data-act="dcancel" style="margin-top:9px">${c.cancelBtn}</button>
+  </div>`;
+}
+
+function dpsPlan(){
+  const c = d(), sch = selScheme(), s = schedule(sch);
+  const label = r => {
+    if(r.st==='done')  return `<div class="s s-done">${c.doneOn} ${fmtDate(r.on)}</div>`;
+    if(r.st==='retry') return `<div class="s s-retry">${c.retrying} — ${digits(4)} ${c.daysLeft}</div>`;
+    if(r.st==='miss')  return `<div class="s s-miss">${c.missed}</div>`;
+    return `<div class="s s-pend">${c.pending}</div>`;
+  };
+  const upcoming = [];
+  for(let i=s.rows.length;i<s.rows.length+4;i++)
+    upcoming.push({i,due:addMonths(s.open,i),st:'pend'});
+  const all = s.rows.concat(upcoming);
+  return dhead(c.planTitle) + `<div class="pad">
+    <div class="sched">${all.map(r=>`
+      <div class="r">
+        <span class="n">${digits(r.i+1)}</span>
+        <span class="dot d-${r.st}"></span>
+        <span><span class="d">${fmtDate(r.due)}</span>${label(r)}</span>
+        <span class="amt">৳ ${money(sch.amount)}</span>
+      </div>`).join('')}</div>
+    <p style="font-size:11px;color:var(--muted);margin-top:11px;line-height:1.5">
+      ${digits(sch.tenure*12)} ${state.lang==='bn'?'কিস্তির মধ্যে প্রথমগুলো দেখানো হচ্ছে':'instalments in total — showing the schedule so far'}</p>
+  </div>`;
+}
+
+function dpsCancel(){
+  const c = d(), k = cancelCalc();
+  return dhead(c.cancelTitle) + `<div class="pad">
+    <div class="policy">
+      <b>${k.met ? c.heldMet : c.heldUnmet}</b>
+      <p>${c.principalS}${k.met?' '+c.slabNote:''}</p>
+    </div>
+    <div class="brk">
+      <div class="row"><span>${c.principal}</span><span>৳ ${money(k.principal)}</span></div>
+      <div class="row"><span>${k.met?c.intReduced:c.intEarned}</span><span>৳ ${money(Math.round(k.interest))}</span></div>
+      <div class="why">${aitRate()===10?c.aitWhy10:c.aitWhy15} ${c.taxNote}</div>
+      <div class="row"><span>${c.ait} (${digits(aitRate())}%)</span><span class="neg">− ৳ ${money(Math.round(k.ait))}</span></div>
+      <div class="row"><span>${c.excise}</span><span class="neg">− ৳ ${money(k.ex)}</span></div>
+      <div class="row"><span>${c.payable}</span><span>৳ ${money(Math.round(k.payable))}</span></div>
+    </div>
+    <button class="tandc" data-act="toasttc">${c.readTC}</button>
+    <button class="cta ghost" data-act="dotp:cancel" style="border-color:var(--clay)">${c.confirmCancel}</button>
+  </div>`;
+}
+
+function dpsCancelled(){
+  const c = d(), k = cancelCalc();
+  return `<div class="pad" style="padding-top:8px">
+    <div class="done">
+      <div class="ring">✓</div><h3>${c.cancelled}</h3><p>${c.cancelledS}</p>
+    </div>
+    <div class="rev" style="margin-top:20px">
+      <div class="row big"><span>${c.payable}</span><span>৳ ${money(Math.round(k.payable))}</span></div>
+      <div class="row"><span>${c.creditedTo}</span><span>${digits('•••• 8834')}</span></div>
+    </div>
+    <button class="cta" data-act="dhome">${c.backHome}</button>
+  </div>`;
+}
+
+Object.assign(VIEWS,{
+  dps:dpsHub, dpsOpen, dpsNom:dpsNominee, dpsRev:dpsReview, dpsOtp,
+  dpsOk:dpsSuccess, dpsList, dpsSum:dpsSummary, dpsPlan, dpsCancel, dpsCancelled,
+  dpsFaq, dpsTut:dpsTutorial
+});
+
+/* ---------- interactions ---------- */
+document.getElementById('screen').addEventListener('click',e=>{
+  const btn = e.target.closest('[data-act]');
+  if(!btn || btn.disabled) return;
+  const parts = btn.dataset.act.split(':');
+  const act = parts[0];
+
+  if(act==='dps'){ state.dpsStack=[]; state.d={prod:null,ten:null,amt:null,nom:null}; dgo('dps'); }
+  else if(act==='dback'){ dback(); }
+  else if(act==='dnew'){ dgo('dpsOpen'); }
+  else if(act==='dnom'){ dgo('dpsNom'); }
+  else if(act==='drev'){ dgo('dpsRev'); }
+  else if(act==='dlist'){ dgo('dpsList'); }
+  else if(act==='dsum'){ dgo('dpsSum'); }
+  else if(act==='dsel'){ state.sel = parts[1]; dgo('dpsSum'); }
+  else if(act==='dfaq'){ dgo('dpsFaq'); }
+  else if(act==='dtut'){ dgo('dpsTut'); }
+  else if(act==='dhub'){ state.dpsStack=[]; state.screen='dps'; render(); }
+  else if(act==='dplan'){ dgo('dpsPlan'); }
+  else if(act==='dcancel'){ dgo('dpsCancel'); }
+  else if(act==='dotp'){ state.otpFor=parts[1]; state.otp=''; state.otpBad=false; dgo('dpsOtp'); }
+  else if(act==='dhome'){ state.screen='dashboard'; state.dpsStack=[]; state.balanceHidden=true; render(); }
+  else if(act==='dset'){
+    const key = parts[1], raw = parts[2];
+    if(key==='prod'){ state.d.prod=raw; state.d.ten=null; state.d.amt=null; }
+    else if(key==='nom'){ state.d.nom=raw; }
+    else { state.d[key]=+raw; }
+    render();
+  }
+  else if(act==='dkey'){
+    const k = parts[1];
+    if(k==='⌫') state.otp = state.otp.slice(0,-1);
+    else if(state.otp.length<6) state.otp += k;
+    state.otpBad = false;
+    render();
+  }
+  else if(act==='dopened'){
+    if(state.otp!=='123456'){ state.otpBad=true; state.otp=''; render(); return; }
+    state.screen='dpsOk'; state.dpsStack=[]; render();
+  }
+  else if(act==='dcancelled'){
+    if(state.otp!=='123456'){ state.otpBad=true; state.otp=''; render(); return; }
+    state.screen='dpsCancelled'; state.dpsStack=[]; render();
+  }
+  else if(act==='toasttc'){ toast('Terms & Conditions','Cancellation slabs are pending Business sign-off (DPS-06)'); }
+  else if(act==='toastresend'){ toast('Code resent','Within the configured attempt limit'); }
+  else if(act==='toastnom'){ toast('Add a nominee','Routes to nominee maintenance — branch or app, still to be confirmed'); }
+});
+
+/* ---------- panel wiring ---------- */
+wire('ctl-scheme',v=>{state.hasScheme=v; state.sel='s1';});
+wire('ctl-nom',v=>{state.nomSet=v; state.d.nom=null;});
+wire('ctl-hold',v=>state.holding=v);
+wire('ctl-ait',v=>state.aitCert=v);
+
+const _sync = syncPanel;
+syncPanel = function(){
+  _sync();
+  const set = (id,val) => document.querySelectorAll('#'+id+' button')
+    .forEach(b=>b.setAttribute('aria-pressed', b.dataset.v===val));
+  set('ctl-scheme',state.hasScheme);
+  set('ctl-nom',state.nomSet);
+  set('ctl-hold',state.holding);
+  set('ctl-ait',state.aitCert);
+};
+
+render();
+</script>
+
 </body>
 </html>
