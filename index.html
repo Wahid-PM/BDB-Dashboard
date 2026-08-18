@@ -661,6 +661,124 @@ body{
 .rulelist{margin-top:8px;}
 .rulelist div{font-size:11px;color:var(--muted);line-height:1.6;}
 .rulelist div.ok{color:#1E7A5A;}
+
+/* ===================== transfers, agent cash, history ===================== */
+.benrow{
+  display:flex;align-items:center;gap:11px;width:100%;padding:12px 13px;background:#fff;
+  border:1px solid var(--line-soft);border-radius:var(--r-md);margin-bottom:8px;cursor:pointer;
+  font-family:var(--body);text-align:left;
+}
+.benrow[aria-pressed="true"]{border-color:var(--plum);box-shadow:0 0 0 1px var(--plum) inset;}
+.benrow .av{width:34px;height:34px;border-radius:11px;flex:none;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--accent),var(--plum));color:#fff;
+  font-family:var(--display);font-weight:700;font-size:13px;}
+.benrow b{font-size:13.5px;font-weight:600;display:block;}
+.benrow small{font-family:var(--data);font-size:10.5px;color:var(--muted);display:block;margin-top:2px;}
+.benrow .tag{margin-left:auto;font-family:var(--data);font-size:9px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--plum);background:rgba(140,17,82,.08);padding:3px 8px;border-radius:99px;}
+.benrow .mng{margin-left:auto;font-family:var(--data);font-size:10px;color:var(--muted);}
+
+.amtbox{background:var(--ink);color:#fff;border-radius:var(--r-lg);padding:20px 18px;margin-top:16px;
+  position:relative;overflow:hidden;}
+.amtbox::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 80% at 90% -10%,rgba(232,72,155,.30),transparent 60%);}
+.amtbox > *{position:relative;z-index:1;}
+.amtbox .k{font-family:var(--data);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.amtin{display:flex;align-items:baseline;gap:8px;margin-top:8px;}
+.amtin span{font-family:var(--display);font-size:24px;font-weight:500;color:var(--accent);}
+.amtin input{
+  flex:1;background:none;border:0;color:#fff;font-family:var(--display);font-size:34px;font-weight:800;
+  letter-spacing:-.03em;width:100%;padding:0;
+}
+.amtin input:focus{outline:0;}
+.amtin input::placeholder{color:rgba(255,255,255,.28);}
+.limline{display:flex;justify-content:space-between;font-family:var(--data);font-size:10px;
+  color:rgba(255,255,255,.55);margin-top:14px;padding-top:11px;border-top:1px solid rgba(255,255,255,.14);}
+.limline b{color:#fff;font-weight:400;}
+.limbad{color:#FF9A9A!important;}
+
+.quick{display:flex;gap:7px;margin-top:12px;flex-wrap:wrap;}
+.quick button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:6px 13px;
+  font-family:var(--data);font-size:11.5px;cursor:pointer;color:var(--ink);}
+
+.qrbox{
+  width:186px;height:186px;margin:18px auto 0;border-radius:var(--r-md);background:#fff;
+  border:1px solid var(--line);display:grid;place-items:center;padding:14px;
+}
+.qrbox .grid{width:100%;height:100%;
+  background-image:
+    repeating-linear-gradient(0deg,var(--ink) 0 8px,transparent 8px 16px),
+    repeating-linear-gradient(90deg,var(--ink) 0 8px,transparent 8px 16px);
+  background-size:16px 16px;opacity:.85;border-radius:4px;}
+.qrcap{text-align:center;font-family:var(--data);font-size:11px;color:var(--muted);margin-top:12px;letter-spacing:.04em;}
+
+.matchcard{
+  background:var(--ink);color:#fff;border-radius:var(--r-md);padding:17px;margin-top:16px;text-align:center;
+}
+.matchcard .k{font-family:var(--data);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.matchcard .no{font-family:var(--data);font-size:19px;letter-spacing:.10em;margin-top:8px;}
+.matchcard .no u{text-decoration:none;color:var(--accent);}
+.matchcard small{display:block;font-size:10.5px;color:rgba(255,255,255,.55);margin-top:9px;line-height:1.5;}
+
+.txrow{display:flex;align-items:center;gap:11px;padding:12px 13px;border-bottom:1px solid var(--line-soft);}
+.txrow:last-child{border-bottom:0;}
+.txrow .ic{width:30px;height:30px;border-radius:10px;flex:none;display:grid;place-items:center;
+  font-family:var(--data);font-size:12px;}
+.txrow .in{background:rgba(30,122,90,.12);color:#1E7A5A;}
+.txrow .out{background:rgba(140,17,82,.10);color:var(--plum);}
+.txrow b{font-size:12.5px;font-weight:600;display:block;}
+.txrow small{font-family:var(--data);font-size:9.5px;color:var(--muted);display:block;margin-top:2px;}
+.txrow .amt{margin-left:auto;font-family:var(--data);font-size:12.5px;text-align:right;white-space:nowrap;}
+.txrow .amt.cr{color:#1E7A5A;}
+.txday{font-family:var(--data);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin:16px 0 7px;}
+
+/* ===================== bottom navigation ===================== */
+.navbar{
+  flex:none;display:none;align-items:flex-end;justify-content:space-around;
+  background:var(--paper);border-top:1px solid var(--line-soft);
+  padding:9px 6px 12px;position:relative;
+}
+.navbar.on{display:flex;}
+.navbtn{
+  background:none;border:0;cursor:pointer;font-family:var(--body);
+  display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 8px;
+  color:var(--muted);flex:1;min-width:0;
+}
+.navbtn .ico{width:21px;height:21px;}
+.navbtn .ico svg{width:100%;height:100%;display:block;}
+.navbtn span{font-size:9.5px;letter-spacing:.01em;white-space:nowrap;}
+.navbtn[aria-current="true"]{color:var(--plum);}
+.navbtn[aria-current="true"] span{font-weight:600;}
+
+.navfab{
+  flex:none;width:56px;display:flex;flex-direction:column;align-items:center;gap:5px;
+  background:none;border:0;cursor:pointer;font-family:var(--body);margin-top:-26px;
+}
+.navfab .disc{
+  width:53px;height:53px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--accent),var(--plum));color:#fff;
+  box-shadow:0 8px 18px -6px rgba(140,17,82,.55);border:3px solid var(--paper);
+}
+.navfab .disc svg{width:25px;height:25px;display:block;}
+.navfab span{font-size:9.5px;color:var(--plum);font-weight:600;white-space:nowrap;}
+.navfab[disabled]{opacity:.4;cursor:not-allowed;}
+.navfab[disabled] .disc{background:var(--line);box-shadow:none;}
+
+/* ===================== QR scanner ===================== */
+.viewfinder{
+  aspect-ratio:1;max-width:250px;margin:20px auto 0;border-radius:22px;position:relative;
+  background:#1A0711;overflow:hidden;display:grid;place-items:center;
+}
+.viewfinder .c{position:absolute;width:38px;height:38px;border:3px solid var(--accent);}
+.viewfinder .c1{top:16px;left:16px;border-right:0;border-bottom:0;border-radius:12px 0 0 0;}
+.viewfinder .c2{top:16px;right:16px;border-left:0;border-bottom:0;border-radius:0 12px 0 0;}
+.viewfinder .c3{bottom:16px;left:16px;border-right:0;border-top:0;border-radius:0 0 0 12px;}
+.viewfinder .c4{bottom:16px;right:16px;border-left:0;border-top:0;border-radius:0 0 12px 0;}
+.viewfinder .beam{position:absolute;left:16px;right:16px;height:2px;background:var(--accent);
+  box-shadow:0 0 14px 2px rgba(232,72,155,.75);animation:sweep 2.2s ease-in-out infinite;}
+@keyframes sweep{0%,100%{top:22%}50%{top:78%}}
+.viewfinder .hint{color:rgba(255,255,255,.5);font-family:var(--data);font-size:10.5px;letter-spacing:.08em;}
 </style>
 </head>
 <body>
@@ -680,6 +798,7 @@ body{
       <span class="dots"><i></i><i></i><i></i></span>
     </div>
     <div class="screen" id="screen"></div>
+    <div class="navbar" id="nav"></div>
   </div>
 
   <!-- ================= PANEL ================= -->
@@ -811,7 +930,7 @@ const T = {
     reveal:'Reveal', mask:'Mask',
     services:'Services', tileCount:'Tap any tile',
     checkBal:'Check balance', dps:'Deposit scheme', ft:'Fund transfer',
-    cw:'Cash withdraw', qr:'Bangla QR', other:'Other services',
+    cw:'Cash out', cashIn:'Cash in', qr:'Bangla QR', other:'Other services',
     notEligible:'Not enabled',
     errTitle:'Balance unavailable', errBody:'We could not reach the banking platform. Your services below still work.',
     offTitle:'No internet connection', offBody:'Reconnect to see your balance. Nothing else has changed.',
@@ -846,7 +965,7 @@ const T = {
     reveal:'দেখুন', mask:'লুকান',
     services:'সেবাসমূহ', tileCount:'যেকোনো টাইলে ট্যাপ করুন',
     checkBal:'ব্যালেন্স দেখুন', dps:'ডিপিএস', ft:'ফান্ড ট্রান্সফার',
-    cw:'ক্যাশ উইথড্র', qr:'বাংলা QR', other:'অন্যান্য সেবা',
+    cw:'ক্যাশ আউট', cashIn:'ক্যাশ ইন', qr:'বাংলা QR', other:'অন্যান্য সেবা',
     notEligible:'চালু নেই',
     errTitle:'ব্যালেন্স দেখানো যাচ্ছে না', errBody:'ব্যাংকিং প্ল্যাটফর্মে পৌঁছানো যায়নি। নিচের সেবাগুলো চালু আছে।',
     offTitle:'ইন্টারনেট সংযোগ নেই', offBody:'সংযোগ ফিরলে ব্যালেন্স দেখা যাবে। অন্য কিছু বদলায়নি।',
@@ -976,9 +1095,9 @@ function tiles(){
   <div class="tiles">
     ${tile('check','bal',c.checkBal)}
     ${tile('dps','dps',c.dps)}
-    ${tile('mod:ft','ft',c.ft,ftOK())}
-    ${tile('mod:cw','cw',c.cw)}
-    ${tile('mod:qr','qr',c.qr,qrOK())}
+    ${tile('ftx','ft',c.ft,ftOK())}
+    ${tile('cox','cw',c.cw)}
+    ${tile('cix','cin',c.cashIn)}
     ${tile('other','other',c.other)}
   </div>`;
 }
@@ -1071,7 +1190,7 @@ function otherServices(){
   </div>
   <div class="pad">
     <div class="list">
-      <button data-act="mod:hist"><span class="ico">${ICONS.hist}</span><span><b>${c.hist}</b><small>${c.histS}</small></span><span class="arrow">›</span></button>
+      <button data-act="txh"><span class="ico">${ICONS.hist}</span><span><b>${c.hist}</b><small>${c.histS}</small></span><span class="arrow">›</span></button>
       <button data-act="mod:stmt"><span class="ico">${ICONS.stmt}</span><span><b>${c.stmt}</b><small>${c.stmtS}</small></span><span class="arrow">›</span></button>
       <button data-act="mod:pwd"><span class="ico">${ICONS.pwd}</span><span><b>${c.pwd}</b><small>${c.pwdS}</small></span><span class="arrow">›</span></button>
     </div>
@@ -2520,6 +2639,545 @@ syncPanel = function(){
 
 /* boot into the login screen with the first-run permission sheet */
 state.screen='obLogin'; state.sheet='perm';
+render();
+</script>
+
+<script>
+/* ============================================================
+   Fund transfer (NPSB), agent cash-in / cash-out, transaction
+   history.  Story refs: FT-01…FT-05, CA-01…CA-05, A2A-06.
+   ============================================================ */
+
+const TX_CFG = {
+  npsbPerTxn:50000, npsbPerDay:200000, npsbUsedToday:35000, npsbFee:10,
+  agentPerTxn:25000, agentPerDay:50000, agentUsedToday:8000,
+  maturedPayout:146943            // 100% cash-out limit applies to this
+};
+
+const BENES = [
+  {id:'b1', name:'Kamrul Hasan',  inst:'City Bank',          acct:'2103 4455 8821', type:'Bank'},
+  {id:'b2', name:'Shirin Akter',  inst:'bKash',              acct:'01711 234567',   type:'MFS'},
+  {id:'b3', name:'Rafiq Traders', inst:'Dutch-Bangla Bank',  acct:'1187 6620 4413', type:'Bank'}
+];
+
+const TXNS = [
+  {d:'Today',      t:'Cash-in at agent 01711 902114',  r:'Agent cash',        a:5000,   cr:1},
+  {d:'Today',      t:'Kamrul Hasan · City Bank',       r:'NPSB outward',      a:12000,  cr:0},
+  {d:'Today',      t:'From bKash wallet',              r:'bKash app (A2A)',   a:3000,   cr:1},
+  {d:'Yesterday',  t:'DPS instalment · 0142…0027',     r:'Standing order',    a:2000,   cr:0},
+  {d:'Yesterday',  t:'To bKash wallet',                r:'bKash app (A2A)',   a:1500,   cr:0},
+  {d:'Yesterday',  t:'Salary · Meghna Group',          r:'NPSB inward',       a:68000,  cr:1},
+  {d:'15 Aug',     t:'Cash-out at agent 01911 445120', r:'Agent cash',        a:6000,   cr:0},
+  {d:'15 Aug',     t:'Reversal · agent leg failed',    r:'Auto-reversal',     a:6000,   cr:1}
+];
+
+Object.assign(state,{
+  ben:null, benType:'Bank', amt:'', otpNext:null, txSource:'casa',
+  npsbLive:'yes', limitCase:'ok', agentCase:'ok', cashSource:'normal', ciState:'wait'
+});
+
+const money0 = n => digits(Number(n||0).toLocaleString('en-US'));
+const benById = id => BENES.find(b=>b.id===id) || state.benList.find(b=>b.id===id);
+state.benList = BENES.slice();
+
+/* limits ------------------------------------------------------ */
+function npsbCheck(v){
+  const perTxn = state.limitCase==='txn' ? 5000 : TX_CFG.npsbPerTxn;
+  const left   = TX_CFG.npsbPerDay - (state.limitCase==='day' ? 195000 : TX_CFG.npsbUsedToday);
+  if(!v) return {ok:false, msg:null, perTxn, left};
+  if(v>perTxn) return {ok:false, msg:`Above the ৳${money0(perTxn)} per-transaction limit`, perTxn, left};
+  if(v>left)   return {ok:false, msg:`Only ৳${money0(left)} left of today's limit`, perTxn, left};
+  return {ok:true, msg:null, perTxn, left};
+}
+function agentCheck(v){
+  const matured = state.cashSource==='matured';
+  const perTxn = matured ? TX_CFG.maturedPayout : TX_CFG.agentPerTxn;
+  const left   = matured ? TX_CFG.maturedPayout : TX_CFG.agentPerDay - TX_CFG.agentUsedToday;
+  if(!v) return {ok:false, msg:null, perTxn, left, matured};
+  if(v>perTxn) return {ok:false, msg:`Above the ৳${money0(perTxn)} per-transaction limit`, perTxn, left, matured};
+  if(v>left)   return {ok:false, msg:`Only ৳${money0(left)} left of today's limit`, perTxn, left, matured};
+  return {ok:true, msg:null, perTxn, left, matured};
+}
+
+/* shared amount entry ----------------------------------------- */
+function amtBox(label,chk,fee){
+  const v = parseFloat(state.amt)||0;
+  return `<div class="amtbox">
+    <div class="k">${label}</div>
+    <div class="amtin"><span>৳</span>
+      <input name="amt" inputmode="numeric" placeholder="0" value="${state.amt}"></div>
+    <div class="limline">
+      <span>Per transaction <b>৳${money0(chk.perTxn)}</b></span>
+      <span>Left today <b>৳${money0(chk.left)}</b></span>
+    </div>
+    ${chk.msg?`<div class="limline"><span class="limbad">${chk.msg}</span></div>`:''}
+    ${fee&&v?`<div class="limline"><span>Fee <b>৳${money0(fee)}</b></span>
+      <span>Total debit <b>৳${money0(v+fee)}</b></span></div>`:''}
+    ${chk.matured?`<div class="limline"><span style="color:#9BE7C4">Matured DPS payout — full amount withdrawable</span></div>`:''}
+  </div>
+  <div class="quick">
+    ${[500,1000,5000,10000].map(q=>`<button data-act="famt:${q}">৳${money0(q)}</button>`).join('')}
+  </div>`;
+}
+
+/* generic OTP for these flows --------------------------------- */
+function vFtOtp(){
+  return obHead('Confirm it is you') + `<div class="pad">
+    <p style="font-size:12.5px;color:var(--muted);line-height:1.5">
+      Enter the 6-digit code sent to your registered number, or use biometrics.</p>
+    ${otpPad()}
+    <button class="cta" data-act="fotpok" ${state.otp.length===6?'':'disabled'}>Confirm</button>
+  </div>`;
+}
+
+/* ---------------- Epic A: NPSB fund transfer ---------------- */
+function vFtHub(){
+  if(state.npsbLive!=='yes'){
+    return obHead('Fund transfer') + `<div class="pad">
+      <div class="policy"><b>NPSB is not available yet</b>
+        <p>Transfers to other banks depend on NPSB credentials from Bangladesh Bank. We will switch this on as soon as they are issued.</p></div>
+      <button class="cta ghost" data-act="xback" style="color:var(--muted)">Back to dashboard</button>
+    </div>`;
+  }
+  return obHead('Fund transfer') + `<div class="pad">
+    <button class="hubcard dark" data-act="fgo:ftSend">
+      <span class="ico">${ICONS.ft}</span><h3>Send via NPSB</h3>
+      <p>To any bank account or MFS wallet in Bangladesh.</p>
+    </button>
+    <button class="hubcard" data-act="fgo:ftBen">
+      <span class="ico">${ICONS.other}</span><h3>Beneficiary management</h3>
+      <p>${digits(state.benList.length)} saved · add or remove accounts</p>
+    </button>
+    <div class="zero" style="margin-top:18px">BEFTN and RTGS come in a later phase. The screens are built so the rail is a setting, not a separate journey.</div>
+  </div>`;
+}
+
+function vFtSend(){
+  const v = parseFloat(state.amt)||0, chk = npsbCheck(v);
+  const b = state.ben ? benById(state.ben) : null;
+  const adhoc = state.ben==='adhoc';
+  const ready = (b || (adhoc && (state.f.adAcct||'').length>5)) && chk.ok;
+  return obHead('Send via NPSB') + `<div class="pad">
+    <div class="flabel">Send to</div>
+    ${state.benList.map(x=>`
+      <button class="benrow" data-act="fben:${x.id}" aria-pressed="${state.ben===x.id}">
+        <span class="av">${x.name.charAt(0)}</span>
+        <span><b>${x.name}</b><small>${x.inst} · ${digits(x.acct)}</small></span>
+        <span class="tag">${x.type}</span>
+      </button>`).join('')}
+    <button class="benrow" data-act="fben:adhoc" aria-pressed="${adhoc}">
+      <span class="av">+</span><span><b>Another account</b><small>Send without saving it</small></span>
+    </button>
+    ${adhoc?`${SEL('adInst','Bank or MFS',['City Bank','Dutch-Bangla Bank','BRAC Bank','bKash','Nagad'])}
+      ${F('adAcct','Account or wallet number')}`:''}
+
+    <div class="flabel">Send from</div>
+    <div class="rev"><div class="row"><span>Savings · ${digits('•••• 8834')}</span>
+      <span>৳ ${money(128450.75)} available</span></div></div>
+
+    ${amtBox('Amount', chk, TX_CFG.npsbFee)}
+    <button class="cta" data-act="fotp:ftDone" ${ready?'':'disabled'}>Continue</button>
+  </div>`;
+}
+
+function vFtDone(){
+  const b = state.ben==='adhoc'
+    ? {name:state.f.adAcct||'—', inst:state.f.adInst||'—', acct:state.f.adAcct||'—'}
+    : benById(state.ben) || BENES[0];
+  const v = parseFloat(state.amt)||0;
+  return `<div class="pad" style="padding-top:8px">
+    <div class="done"><div class="ring">✓</div><h3>Money sent</h3>
+      <p>NPSB transfers usually arrive within a minute.</p></div>
+    <div class="rev" style="margin-top:20px">
+      <div class="row big"><span>Amount</span><span>৳ ${money0(v)}</span></div>
+      <div class="row"><span>Fee</span><span>৳ ${money0(TX_CFG.npsbFee)}</span></div>
+      <div class="row"><span>Total debited</span><span>৳ ${money0(v+TX_CFG.npsbFee)}</span></div>
+      <div class="row"><span>To</span><span>${b.name}</span></div>
+      <div class="row"><span>Account</span><span>${digits(b.acct)}</span></div>
+      <div class="row"><span>Rail</span><span>NPSB</span></div>
+      <div class="row"><span>Reference</span><span>NPSB${digits('8841207')}</span></div>
+    </div>
+    <button class="cta" data-act="fhome">Done</button>
+  </div>`;
+}
+
+function vFtBen(){
+  return obHead('Beneficiaries') + `<div class="pad">
+    ${state.benList.length?state.benList.map(x=>`
+      <div class="benrow" style="cursor:default">
+        <span class="av">${x.name.charAt(0)}</span>
+        <span><b>${x.name}</b><small>${x.inst} · ${digits(x.acct)}</small></span>
+        <button class="link" data-act="frm:${x.id}" style="margin-left:auto;font-size:11.5px">Remove</button>
+      </div>`).join('')
+      :`<div class="zero">No saved beneficiaries yet.</div>`}
+    <button class="cta" data-act="fgo:ftAdd">Add account</button>
+  </div>`;
+}
+
+function vFtAdd(){
+  const ok = (state.f.bAcct||'').length>5 && (state.f.bTitle||'') && state.f.bTnc;
+  return obHead('Add a beneficiary') + `<div class="pad">
+    <div class="flabel">Beneficiary type</div>
+    <div class="opts">
+      ${['Bank','MFS'].map(t=>`<button class="opt" data-act="fbtype:${t}" aria-pressed="${state.benType===t}">${t}</button>`).join('')}
+    </div>
+    ${SEL('bInst', state.benType==='Bank'?'Bank':'MFS provider',
+      state.benType==='Bank'?['City Bank','Dutch-Bangla Bank','BRAC Bank','Eastern Bank']:['bKash','Nagad','Rocket'])}
+    ${F('bAcct', state.benType==='Bank'?'Account number':'Wallet number')}
+    ${F('bTitle','Account title','Exactly as it appears on the account')}
+    <div class="policy" style="margin-top:12px"><b>Check the number carefully</b>
+      <p>The title you type is a label for your own list. It is not checked against the receiving bank, so a wrong account number will still send.</p></div>
+    ${CHK('bTnc','I accept the beneficiary terms and conditions.')}
+    <button class="cta" data-act="fotp:ftAddDone" ${ok?'':'disabled'}>Add beneficiary</button>
+  </div>`;
+}
+
+function vFtAddDone(){
+  return `<div class="pad" style="padding-top:8px">
+    <div class="done"><div class="ring">✓</div><h3>Beneficiary added</h3>
+      <p>${state.f.bTitle} is now in your list.</p></div>
+    <button class="cta" data-act="fgo:ftSend">Send money now</button>
+    <button class="cta ghost" data-act="fhome" style="margin-top:9px;color:var(--muted)">Back to dashboard</button>
+  </div>`;
+}
+
+/* ---------------- Epic B: agent cash ---------------- */
+function vCashOut(){
+  const v = parseFloat(state.amt)||0, chk = agentCheck(v);
+  const ready = (state.f.agent||'').length>5 && chk.ok;
+  return obHead('Cash withdrawal') + `<div class="pad">
+    <div class="flabel">Agent</div>
+    <div class="capgrid">
+      <button class="cap ${state.f.agentQr?'done':''}" data-act="fscan">
+        <div class="ic">${state.f.agentQr?'✓':'▣'}</div><b>Scan agent QR</b><small>${state.f.agentQr?'Agent 01911 445120':'Point at the agent code'}</small></button>
+      <button class="cap" data-act="fmanual"><div class="ic">⌨</div><b>Enter number</b><small>Type it instead</small></button>
+    </div>
+    ${state.f.showAgent?F('agent','Agent number','01XXXXXXXXX','tel'):''}
+    ${amtBox('Withdraw', chk)}
+    <button class="cta" data-act="fotp:${state.agentCase==='fail'?'coFail':'coDone'}" ${ready?'':'disabled'}>Continue</button>
+  </div>`;
+}
+
+function vCoDone(){
+  const v = parseFloat(state.amt)||0;
+  return `<div class="pad" style="padding-top:8px">
+    <div class="done"><div class="ring">✓</div><h3>Ready to collect</h3>
+      <p>Your account has been debited and the agent's wallet is credited.</p></div>
+    <div class="matchcard">
+      <div class="k">Show this to the agent</div>
+      <div class="no">0142 7739 <u>8834</u></div>
+      <small>The agent sees the last digits on their notification. Read them out to confirm you are both on the same transaction.</small>
+    </div>
+    <div class="rev" style="margin-top:12px">
+      <div class="row big"><span>Cash to collect</span><span>৳ ${money0(v)}</span></div>
+      <div class="row"><span>Agent</span><span>${digits(state.f.agent||'01911 445120')}</span></div>
+    </div>
+    <button class="cta" data-act="fhome">Done</button>
+  </div>`;
+}
+
+function vCoFail(){
+  const v = parseFloat(state.amt)||0;
+  return `<div class="pad" style="padding-top:8px">
+    <div class="done"><div class="ring" style="background:var(--clay)">↺</div>
+      <h3>Withdrawal reversed</h3>
+      <p>The agent's side did not complete, so we put the money straight back.</p></div>
+    <div class="rev" style="margin-top:20px">
+      <div class="row"><span>Attempted</span><span>৳ ${money0(v)}</span></div>
+      <div class="row big"><span>Refunded to your account</span><span>৳ ${money0(v)}</span></div>
+      <div class="row"><span>Reason</span><span>Agent leg failed</span></div>
+    </div>
+    <p style="font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.5">
+      Nothing is left pending — the debit and the agent credit always succeed or fail together.</p>
+    <button class="cta" data-act="fhome">Done</button>
+  </div>`;
+}
+
+function vCashIn(){
+  const credited = state.ciState==='done';
+  return obHead('Cash in at an agent') + `<div class="pad">
+    ${credited ? `
+      <div class="done" style="padding-top:10px"><div class="ring">✓</div><h3>Money added</h3>
+        <p>The agent's wallet was debited and your account credited.</p></div>
+      <div class="rev" style="margin-top:18px">
+        <div class="row big"><span>Added</span><span>৳ ${money0(5000)}</span></div>
+        <div class="row"><span>Agent</span><span>${digits('01711 902114')}</span></div>
+      </div>
+      <button class="cta" data-act="fhome">Done</button>`
+    : `
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.55">
+        Hand your cash to the agent and show this code. They enter the amount on their side — you do not need to confirm anything.</p>
+      <div class="qrbox"><div class="grid"></div></div>
+      <div class="qrcap">Savings · ${digits('0142 7739 3311 8834')}</div>
+      <div class="policy" style="margin-top:16px"><b>No app? No problem</b>
+        <p>Agents without the app can take your account number over USSD instead. The result is identical.</p></div>
+      <button class="cta" data-act="fci">Agent has confirmed</button>`}
+  </div>`;
+}
+
+/* ---------------- transaction history (A2A-06, FT-05) ---------------- */
+function vTxHistory(){
+  let out = '', day = '';
+  TXNS.forEach(t=>{
+    if(t.d!==day){ day=t.d; out += `<div class="txday">${day}</div><div class="list">`; }
+    out += `<div class="txrow">
+      <span class="ic ${t.cr?'in':'out'}">${t.cr?'↓':'↑'}</span>
+      <span><b>${t.t}</b><small>${t.r}</small></span>
+      <span class="amt ${t.cr?'cr':''}">${t.cr?'+':'−'} ৳${money0(t.a)}</span>
+    </div>`;
+    const nxt = TXNS[TXNS.indexOf(t)+1];
+    if(!nxt || nxt.d!==day) out += `</div>`;
+  });
+  return obHead('Transaction history') + `<div class="pad">${out}
+    <p style="font-size:11px;color:var(--muted);margin-top:14px;line-height:1.5">
+      Transfers made inside the bKash app appear here automatically — the bank builds no screens for them, but every movement is recorded.</p>
+  </div>`;
+}
+</script>
+
+<script>
+/* ---------------- wiring ---------------- */
+Object.assign(VIEWS,{
+  ftHub:vFtHub, ftSend:vFtSend, ftDone:vFtDone, ftBen:vFtBen, ftAdd:vFtAdd, ftAddDone:vFtAddDone,
+  ftOtp:vFtOtp, coStart:vCashOut, coDone:vCoDone, coFail:vCoFail, ciStart:vCashIn, txHist:vTxHistory
+});
+
+/* cash-in lives in Other services, next to tax info */
+const _other2 = VIEWS.other;
+VIEWS.other = function(){
+  return _other2().replace('<button data-act="xgo:obTax">',
+    `<button data-act="fgo:ciStart"><span class="ico">${ICONS.cw}</span>
+       <span><b>Cash in at an agent</b><small>Show a QR, hand over cash</small></span>
+       <span class="arrow">›</span></button>
+     <button data-act="xgo:obTax">`);
+};
+
+document.getElementById('screen').addEventListener('click',e=>{
+  const btn = e.target.closest('[data-act]');
+  if(!btn || btn.disabled) return;
+  const p = btn.dataset.act.split(':');
+  const a = p[0];
+
+  if(a==='ftx'){ state.dpsStack.push(state.screen); state.ben=null; state.amt=''; state.screen='ftHub'; render(); }
+  else if(a==='cox'){ state.dpsStack.push(state.screen); state.amt=''; state.f.agentQr=0; state.f.showAgent=0;
+                      state.f.agent=''; state.screen='coStart'; render(); }
+  else if(a==='txh'){ state.dpsStack.push(state.screen); state.screen='txHist'; render(); }
+  else if(a==='fgo'){ state.dpsStack.push(state.screen); state.screen=p[1];
+                      if(p[1]==='ciStart') state.ciState='wait'; render(); }
+  else if(a==='fhome'){ state.screen='dashboard'; state.dpsStack=[]; state.balanceHidden=true;
+                        state.amt=''; state.ben=null; render(); }
+  else if(a==='fben'){ state.ben=p[1]; render(); }
+  else if(a==='fbtype'){ state.benType=p[1]; state.f.bInst=''; render(); }
+  else if(a==='famt'){ state.amt=p[1]; render(); }
+  else if(a==='fscan'){ state.f.agentQr=1; state.f.agent='01911 445120'; state.f.showAgent=0; render(); }
+  else if(a==='fmanual'){ state.f.showAgent=1; state.f.agentQr=0; state.f.agent=''; render(); }
+  else if(a==='fci'){ state.ciState='done'; render(); }
+  else if(a==='frm'){ state.otpNext='ftRemove:'+p[1]; state.otp=''; state.otpBad=false;
+                      state.dpsStack.push(state.screen); state.screen='ftOtp'; render(); }
+  else if(a==='fotp'){ state.otpNext=p[1]; state.otp=''; state.otpBad=false;
+                       state.dpsStack.push(state.screen); state.screen='ftOtp'; render(); }
+  else if(a==='fotpok'){
+    if(state.otp!=='123456'){ state.otpBad=true; state.otp=''; return render(); }
+    const nxt = String(state.otpNext||'');
+    if(nxt.startsWith('ftRemove')){
+      const id = nxt.split(':')[1];
+      state.benList = state.benList.filter(b=>b.id!==id);
+      if(state.ben===id) state.ben=null;
+      state.screen='ftBen'; state.dpsStack=[]; toast('Beneficiary removed','Your past transfers are unaffected');
+    } else {
+      if(nxt==='ftAddDone'){
+        state.benList.push({id:'b'+(state.benList.length+1), name:state.f.bTitle,
+          inst:state.f.bInst||state.benType, acct:state.f.bAcct, type:state.benType});
+      }
+      state.screen=nxt; state.dpsStack=[]; render();
+    }
+  }
+});
+
+/* amount field feeds state.amt (digits only) */
+document.getElementById('screen').addEventListener('input',e=>{
+  if(e.target.name!=='amt') return;
+  state.amt = e.target.value.replace(/[^0-9.]/g,'');
+});
+
+/* ---------------- panel ---------------- */
+document.querySelector('.panel .footnote').insertAdjacentHTML('beforebegin',`
+  <div class="group">
+    <div class="story">FT-02 · FT-03 · NPSB transfer</div>
+    <h3>Transfer scenarios</h3>
+    <p>NPSB depends on Bangladesh Bank credentials — switch it off to see what the Fund transfer tile does if it is not live at launch.</p>
+    <div class="segmented" id="ctl-npsb">
+      <button data-v="yes">NPSB live</button>
+      <button data-v="no">Not available</button>
+    </div>
+    <div class="segmented" id="ctl-limit" style="margin-top:8px">
+      <button data-v="ok">Normal limits</button>
+      <button data-v="txn">Low per-txn</button>
+      <button data-v="day">Daily nearly used</button>
+    </div>
+  </div>
+  <div class="group">
+    <div class="story">CA-01 · CA-02 · CA-04 · Agent cash</div>
+    <h3>Cash-out scenarios</h3>
+    <p>A matured DPS payout carries a 100% withdrawal limit. The failure case shows the automatic reversal — nothing is left pending.</p>
+    <div class="segmented" id="ctl-cashsrc">
+      <button data-v="normal">Standard limit</button>
+      <button data-v="matured">Matured DPS payout</button>
+    </div>
+    <div class="segmented" id="ctl-agent" style="margin-top:8px">
+      <button data-v="ok">Agent completes</button>
+      <button data-v="fail">Agent leg fails</button>
+    </div>
+  </div>`);
+
+wire('ctl-npsb',v=>state.npsbLive=v);
+wire('ctl-limit',v=>state.limitCase=v);
+wire('ctl-cashsrc',v=>state.cashSource=v);
+wire('ctl-agent',v=>state.agentCase=v);
+
+const _sync3 = syncPanel;
+syncPanel = function(){
+  _sync3();
+  const set=(id,val)=>document.querySelectorAll('#'+id+' button')
+    .forEach(b=>b.setAttribute('aria-pressed', b.dataset.v===val));
+  set('ctl-npsb',state.npsbLive); set('ctl-limit',state.limitCase);
+  set('ctl-cashsrc',state.cashSource); set('ctl-agent',state.agentCase);
+};
+render();
+</script>
+
+<script>
+/* ============================================================
+   Bottom navigation + Bangla QR pay.  Cash in / Cash out now sit
+   side by side in the grid; QR moves to the scan button.
+   ============================================================ */
+
+Object.assign(ICONS,{
+  cin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="18" height="12" rx="2.5"/><path d="M12 2.5v5M9.6 5.4L12 7.8l2.4-2.4"/><circle cx="12" cy="14" r="2.3"/></svg>',
+  home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 10.5L12 4l8 6.5V20H4z"/><path d="M9.6 20v-5.4h4.8V20"/></svg>',
+  scan:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8.5V6a2 2 0 0 1 2-2h2.5M15.5 4H18a2 2 0 0 1 2 2v2.5M20 15.5V18a2 2 0 0 1-2 2h-2.5M8.5 20H6a2 2 0 0 1-2-2v-2.5"/><path d="M4 12h16"/></svg>',
+  more:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h10"/></svg>'
+});
+
+T.en.nav = {home:'Home', history:'History', scan:'Scan QR', savings:'Savings', more:'More',
+  qrTitle:'Scan to pay', qrHint:'Point at any Bangla QR', qrScan:'Simulate a scan',
+  merchant:'Merchant', payNow:'Pay now', paid:'Payment sent', qrNote:'Works at any merchant displaying the Bangla QR mark.',
+  qrOff:'Bangla QR is not enabled on your account.'};
+T.bn.nav = {home:'হোম', history:'লেনদেন', scan:'QR স্ক্যান', savings:'সঞ্চয়', more:'আরও',
+  qrTitle:'স্ক্যান করে পেমেন্ট', qrHint:'যেকোনো বাংলা QR-এ ধরুন', qrScan:'স্ক্যান সিমুলেট করুন',
+  merchant:'মার্চেন্ট', payNow:'পেমেন্ট করুন', paid:'পেমেন্ট সম্পন্ন',
+  qrNote:'যেখানে বাংলা QR চিহ্ন আছে, সেখানেই চলবে।', qrOff:'আপনার অ্যাকাউন্টে বাংলা QR চালু নেই।'};
+const nv = () => t().nav;
+
+const NAV_SCREENS = ['dashboard','txHist','dps','other'];
+
+function paintNav(){
+  const el = document.getElementById('nav');
+  if(!el) return;
+  const show = state.auth==='in' && NAV_SCREENS.includes(state.screen);
+  el.className = 'navbar' + (show?' on':'');
+  if(!show){ el.innerHTML=''; return; }
+  const n = nv();
+  const item = (act,ico,label,cur) =>
+    `<button class="navbtn" data-act="${act}" aria-current="${cur}">
+       <span class="ico">${ICONS[ico]}</span><span>${label}</span></button>`;
+  const qrHidden = !qrOK() && state.treatment==='hide';
+  el.innerHTML =
+    item('nhome','home',n.home,state.screen==='dashboard') +
+    item('txh','hist',n.history,state.screen==='txHist') +
+    (qrHidden ? '' :
+      `<button class="navfab" data-act="nqr" ${qrOK()?'':'disabled'}>
+         <span class="disc">${ICONS.scan}</span><span>${n.scan}</span></button>`) +
+    item('dps','dps',n.savings,state.screen==='dps') +
+    item('other','more',n.more,state.screen==='other');
+}
+
+/* keep the nav in step with every render */
+const _renderBase = render;
+render = function(){ _renderBase(); paintNav(); };
+
+/* ---------------- Bangla QR pay ---------------- */
+function vQrScan(){
+  const n = nv();
+  if(!qrOK()){
+    return obHead(n.qrTitle) + `<div class="pad">
+      <div class="policy"><b>${n.qrOff}</b><p>${n.qrNote}</p></div>
+      <button class="cta ghost" data-act="fhome" style="color:var(--muted)">${t().dpsUI.backHome}</button>
+    </div>`;
+  }
+  return obHead(n.qrTitle) + `<div class="pad">
+    <div class="viewfinder">
+      <span class="c c1"></span><span class="c c2"></span><span class="c c3"></span><span class="c c4"></span>
+      <span class="beam"></span><span class="hint">${n.qrHint}</span>
+    </div>
+    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.5">${n.qrNote}</p>
+    <button class="cta" data-act="nqrfound">${n.qrScan}</button>
+  </div>`;
+}
+
+function vQrPay(){
+  const n = nv(), v = parseFloat(state.amt)||0;
+  return obHead(n.payNow) + `<div class="pad">
+    <div class="benrow" style="cursor:default">
+      <span class="av">R</span>
+      <span><b>Rahim General Store</b><small>${n.merchant} · Banani, Dhaka</small></span>
+      <span class="tag">Bangla QR</span>
+    </div>
+    <div class="amtbox">
+      <div class="k">${t().dpsUI.amount.replace('Monthly instalment','Amount')||'Amount'}</div>
+      <div class="amtin"><span>৳</span>
+        <input name="amt" inputmode="numeric" placeholder="0" value="${state.amt}"></div>
+      <div class="limline"><span>Paying from Savings <b>${digits('•••• 8834')}</b></span></div>
+    </div>
+    <div class="quick">${[100,250,500,1000].map(q=>`<button data-act="famt:${q}">৳${money0(q)}</button>`).join('')}</div>
+    <button class="cta" data-act="fotp:qrDone" ${v>0?'':'disabled'}>${n.payNow}</button>
+  </div>`;
+}
+
+function vQrDone(){
+  const n = nv(), v = parseFloat(state.amt)||0;
+  return `<div class="pad" style="padding-top:8px">
+    <div class="done"><div class="ring">✓</div><h3>${n.paid}</h3>
+      <p>Rahim General Store has been paid.</p></div>
+    <div class="rev" style="margin-top:20px">
+      <div class="row big"><span>Amount</span><span>৳ ${money0(v)}</span></div>
+      <div class="row"><span>${n.merchant}</span><span>Rahim General Store</span></div>
+      <div class="row"><span>Rail</span><span>Bangla QR</span></div>
+      <div class="row"><span>Reference</span><span>BQR${digits('4471903')}</span></div>
+    </div>
+    <button class="cta" data-act="fhome">Done</button>
+  </div>`;
+}
+
+Object.assign(VIEWS,{qrScan:vQrScan, qrPay:vQrPay, qrDone:vQrDone});
+
+/* cash-in returns to the tile grid, so drop it from Other services */
+const _other3 = VIEWS.other;
+VIEWS.other = function(){
+  return _other3().replace(/<button data-act="fgo:ciStart">[\s\S]*?<\/button>\s*(?=<button data-act="xgo:obTax">)/, '');
+};
+
+document.getElementById('screen').addEventListener('click',e=>{
+  const btn = e.target.closest('[data-act]'); if(!btn||btn.disabled) return;
+  const a = btn.dataset.act.split(':')[0];
+  if(a==='cix'){ state.dpsStack.push(state.screen); state.ciState='wait'; state.screen='ciStart'; render(); }
+});
+
+/* nav bar clicks */
+document.getElementById('nav').addEventListener('click',e=>{
+  const btn = e.target.closest('[data-act]'); if(!btn||btn.disabled) return;
+  const a = btn.dataset.act;
+  if(a==='nhome'){ state.screen='dashboard'; state.dpsStack=[]; state.balanceHidden=true; render(); }
+  else if(a==='txh'){ state.dpsStack.push(state.screen); state.screen='txHist'; render(); }
+  else if(a==='dps'){ state.dpsStack=[]; state.screen='dps'; render(); }
+  else if(a==='other'){ state.dpsStack=[]; state.screen='other'; render(); }
+  else if(a==='nqr'){ state.dpsStack.push(state.screen); state.amt=''; state.screen='qrScan'; render(); }
+});
+document.getElementById('screen').addEventListener('click',e=>{
+  const btn = e.target.closest('[data-act]'); if(!btn||btn.disabled) return;
+  if(btn.dataset.act==='nqrfound'){ state.dpsStack.push(state.screen); state.screen='qrPay'; render(); }
+});
+
 render();
 </script>
 
